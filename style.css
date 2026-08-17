@@ -1,0 +1,735 @@
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   BODY
+========================================================= */
+
+body {
+    position: relative;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #0b2c58 0%,
+            #071322 40%,
+            #041919 100%
+        );
+
+    font-family: 'Segoe UI', sans-serif;
+
+    color: #fff;
+
+    overflow: hidden;
+
+    height: 100vh;
+}
+
+
+body::before {
+
+    content: '';
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 50% 10%,
+            rgba(255,255,255,0.08),
+            transparent 18%
+        ),
+
+        repeating-linear-gradient(
+            0deg,
+            rgba(255,255,255,0.05) 0,
+            rgba(255,255,255,0.05) 2px,
+            transparent 2px,
+            transparent 40px
+        );
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+/* =========================================================
+   APP
+========================================================= */
+
+#app {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    z-index: 1;
+}
+
+
+/* =========================================================
+   TELAS
+========================================================= */
+
+#screen-start,
+#screen-game {
+
+    width: 100%;
+
+    height: 100%;
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+}
+
+
+/* =========================================================
+   TELA INICIAL
+========================================================= */
+
+#screen-start {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 24%,
+            rgba(255,255,255,0.14),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            180deg,
+            #073760 0%,
+            #03111f 60%,
+            #03191e 100%
+        );
+
+    z-index: 10;
+}
+
+
+/* =========================================================
+   TÍTULO
+========================================================= */
+
+#screen-start h1 {
+
+    font-size: 3rem;
+
+    font-weight: 900;
+
+    letter-spacing: -2px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffd700,
+            #00c853
+        );
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+    margin-bottom: 0.5rem;
+}
+
+
+#screen-start p {
+
+    color: #cbe7ff;
+
+    font-size: 1.1rem;
+
+    margin-bottom: 2.2rem;
+
+    max-width: 560px;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   BADGE
+========================================================= */
+
+.world-cup-badge {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 0.5rem;
+
+    padding: 0.65rem 1rem;
+
+    border-radius: 999px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.18);
+
+    background:
+        rgba(255,255,255,0.06);
+
+    color: #fff;
+
+    font-size: 0.85rem;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 1.2rem;
+}
+
+
+/* =========================================================
+   ÍCONE DA BOLA
+========================================================= */
+
+.football-icon {
+
+    font-size: 5rem;
+
+    margin-bottom: 1rem;
+}
+
+
+/* =========================================================
+   INSTRUÇÕES
+========================================================= */
+
+.instructions {
+
+    display: flex;
+
+    gap: 2rem;
+
+    margin-bottom: 2.5rem;
+
+    color: #d3e8ff;
+
+    font-size: 0.95rem;
+
+    text-align: center;
+}
+
+
+.instructions span {
+
+    color: #ffd700;
+}
+
+
+/* =========================================================
+   BOTÃO
+========================================================= */
+
+#btn-start {
+
+    padding: 1rem 3rem;
+
+    font-size: 1.2rem;
+
+    font-weight: 700;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffd700,
+            #00c853
+        );
+
+    color: #041116;
+
+    border: none;
+
+    border-radius: 999px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s,
+        box-shadow 0.15s;
+
+    box-shadow:
+        0 0 30px
+        rgba(255,215,0,0.35);
+}
+
+
+#btn-start:hover {
+
+    transform: scale(1.06);
+
+    box-shadow:
+        0 0 50px
+        rgba(255,215,0,0.45);
+}
+
+
+/* =========================================================
+   TELA DO JOGO
+========================================================= */
+
+#screen-game {
+
+    display: none;
+}
+
+
+/* =========================================================
+   VÍDEO
+========================================================= */
+
+#video-wrap {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 100%;
+}
+
+
+#video {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transform: scaleX(-1);
+}
+
+
+#canvas {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    transform: scaleX(-1);
+}
+
+
+#overlay-canvas {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    z-index: 15;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   HUD
+========================================================= */
+
+#hud {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    right: 0;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 1rem 2rem;
+
+    background:
+        rgba(2, 21, 40, 0.92);
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    z-index: 20;
+}
+
+
+.hud-stat {
+
+    text-align: center;
+}
+
+
+.hud-label {
+
+    font-size: 0.7rem;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    color: #a1d7ff;
+}
+
+
+.hud-value {
+
+    font-size: 1.8rem;
+
+    font-weight: 900;
+
+    color: #ffd700;
+
+    line-height: 1;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+#status-bar {
+
+    position: absolute;
+
+    bottom: 0;
+
+    left: 0;
+
+    right: 0;
+
+    padding: 1rem 2rem;
+
+    background:
+        rgba(1, 15, 26, 0.88);
+
+    text-align: center;
+
+    z-index: 20;
+}
+
+
+#status-msg {
+
+    font-size: 1.1rem;
+
+    color: #fff176;
+
+    font-weight: 700;
+
+    min-height: 1.5rem;
+}
+
+
+#kick-hint {
+
+    font-size: 0.85rem;
+
+    color: #cbe7ff;
+
+    margin-top: 0.3rem;
+}
+
+
+/* =========================================================
+   EFEITO DE GOL
+========================================================= */
+
+#goal-flash {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    pointer-events: none;
+
+    z-index: 30;
+
+    opacity: 0;
+
+    transition: opacity 0.1s;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,215,0,0.35),
+            transparent 34%
+        );
+}
+
+
+#goal-flash.show {
+
+    opacity: 1;
+}
+
+
+#goal-flash > div {
+
+    width: 100%;
+
+    height: 100%;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            #ffd70033 0%,
+            transparent 70%
+        );
+}
+
+
+/* =========================================================
+   TEXTO DO GOL
+========================================================= */
+
+#goal-text {
+
+    position: absolute;
+
+    top: 45%;
+
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    font-size: 5rem;
+
+    font-weight: 900;
+
+    text-align: center;
+
+    text-shadow:
+        0 0 40px
+        rgba(255,215,0,0.9),
+
+        0 0 90px
+        rgba(255,121,0,0.7);
+
+    color: #ffd700;
+
+    opacity: 0;
+
+    z-index: 40;
+
+    pointer-events: none;
+
+    transition: opacity 0.2s;
+}
+
+
+#goal-text.show {
+
+    opacity: 1;
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+#loading-overlay {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    background:
+        rgba(2, 18, 38, 0.96);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    z-index: 50;
+}
+
+
+/* =========================================================
+   SPINNER
+========================================================= */
+
+.spinner {
+
+    width: 50px;
+
+    height: 50px;
+
+    border:
+        4px solid
+        rgba(255,215,0,0.2);
+
+    border-top:
+        4px solid
+        #ffd700;
+
+    border-radius: 50%;
+
+    animation:
+        spin 0.8s linear infinite;
+}
+
+
+@keyframes spin {
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+#loading-overlay p {
+
+    color: #cbe7ff;
+
+    margin-top: 1rem;
+
+    font-size: 1rem;
+}
+
+
+/* =========================================================
+   BARRA DE POTÊNCIA
+========================================================= */
+
+#power-bar-wrap {
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 80px;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 25;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 4px;
+}
+
+
+#power-bar-label {
+
+    font-size: 0.65rem;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    color: #cbe7ff;
+}
+
+
+#power-bar-bg {
+
+    width: 220px;
+
+    height: 12px;
+
+    background:
+        rgba(255,255,255,0.12);
+
+    border-radius: 999px;
+
+    overflow: hidden;
+}
+
+
+#power-bar-fill {
+
+    height: 100%;
+
+    width: 0%;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffd700,
+            #00c853,
+            #00e5ff
+        );
+
+    transition:
+        width 0.1s;
+}
